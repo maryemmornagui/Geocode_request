@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Geocode_request</string>
+    <string name="fill_in_a_value" />
+    <string name="make_valid_lat" />
+    <string name="no_results" />
+    <string name="choose_city_spinner" />
+    <string name="geocode" />
+    <string name="map_center" />
+    <string name="geocoding_results" />
+    <string name="latitude" />
+    <string name="longitude" />
+
+
+</resources>
