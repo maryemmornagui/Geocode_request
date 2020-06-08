@@ -129,7 +129,72 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         chooseCityButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showCityListMenu();
+
+                double  coordonnees[][]=new  double [4][2];
+
+                //focus
+                coordonnees [0][0]= 36.899378;
+                coordonnees [0][1]= 10.190871;
+//habib borguiba
+                coordonnees [1][0]= 36.800640;
+                coordonnees [1][1]= 10.186609;
+//rades
+                coordonnees [2][0]= 36.748195;
+                coordonnees [2][1]= 10.272628;
+//bab bhar
+                coordonnees [3][0]= 36.803358;
+                coordonnees [3][1]= 10.175673;
+
+                long temps_depart = System.currentTimeMillis();
+                long duree = 5000; // en millisecondes
+                int i = 0;
+
+                try {
+                    while( i<4 )
+                    {
+                        LatLng cityLatLng = new LatLng();
+
+
+                        cityLatLng = new LatLng(coordonnees[i][0], coordonnees[i][1]);
+                        setCoordinateEditTexts(cityLatLng);
+                        animateCameraToNewPosition(cityLatLng);
+                        makeGeocodeSearch(cityLatLng);
+
+                        Thread.sleep(5000);
+                        i=i+1;
+                    }
+                } catch (InterruptedException ex) {
+                    //SomeFishCatching
+                }
+
+//                Timer timer = new Timer();
+//                // creating timer task, timer
+//                TimerTask tasknew = new TimerTask() {
+//                    @Override
+//                    // this method performs the task
+//                    public void run() {
+//
+//                        LatLng cityLatLng = new LatLng();
+//
+//                        for(int i = 0; i <4; i++) {
+//                            cityLatLng = new LatLng(coordonnees[i][0], coordonnees[i][1]);
+//                            setCoordinateEditTexts(cityLatLng);
+//                            animateCameraToNewPosition(cityLatLng);
+//                            makeGeocodeSearch(cityLatLng);
+//
+//                            try {
+//                                Thread.sleep(5000);
+//                            } catch(InterruptedException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//
+//                    };
+//
+//                };
+//                timer.schedule(tasknew, 0, 5000);
+
+
             }
         });
         mapCenterButton.setOnClickListener(new View.OnClickListener() {
